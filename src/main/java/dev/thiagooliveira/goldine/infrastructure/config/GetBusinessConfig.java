@@ -1,4 +1,4 @@
-package dev.thiagooliveira.goldine.infrastructure;
+package dev.thiagooliveira.goldine.infrastructure.config;
 
 import dev.thiagooliveira.goldine.application.usecase.command.GetBusiness;
 import dev.thiagooliveira.goldine.domain.repository.BusinessRepository;
