@@ -1,0 +1,232 @@
+spring:
+  application:
+    name: goldine
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate.format_sql: true
+  datasource:
+    url: jdbc:h2:mem:goldinedb
+    driver-class-name: org.h2.Driver
+    username: admin
+    password: admin
+  h2:
+    console:
+      enabled: true
+
+logging:
+  level:
+    ROOT: info
+    dev.thiagooliveira: DEBUG
+
+app:
+  seed:
+    business:
+      name: "Food Parade"
+      address: "123 Star Street, Lisbon"
+      supported-languages: [ "PT", "EN" ]
+      social-links:
+        - type: "INSTAGRAM"
+          url: "https://instagram.com/foodparade"
+        - type: "FACEBOOK"
+          url: "https://facebook.com/foodparade"
+        - type: "WEB"
+          url: "https://foodparade.com"
+
+      catalogs:
+        # ======================================================
+        # CATALOGO ALMOÇO - PORTUGUÊS
+        # ======================================================
+        - language: "PT"
+          name: "Almoço"
+          categories:
+            - name: "Entradas"
+              offerings:
+                - name: "Batata-frita"
+                  description: "Crocrante e deliciosa"
+                  price: 4.00
+                  images: ["vp-5.png"]
+
+                - name: "Salgadinhos"
+                  description: "Variedade de mini salgados"
+                  price: 5.00
+                  images: ["vp-9.png"]
+
+                - name: "Toucinho de camarão"
+                  description: "Pequenos e saborosos"
+                  price: 6.00
+                  images: ["vp-12.png"]
+
+            - name: "Pratos Principais"
+              offerings:
+                - name: "Pizza"
+                  description: "Massa fresca com queijo e cobertura"
+                  price: 12.00
+                  images: ["vp-1.png"]
+
+                - name: "Hamburger"
+                  description: "Carne suculenta com queijo"
+                  price: 10.50
+                  images: ["vp-2.png"]
+
+                - name: "Frango Frito"
+                  description: "Crocrante e saboroso"
+                  price: 11.00
+                  images: ["vp-6.png"]
+
+                - name: "Tacos"
+                  description: "Com carne e temperos especiais"
+                  price: 9.50
+                  images: ["vp-7.png"]
+
+                - name: "Sushi"
+                  description: "Peixe fresco e arroz temperado"
+                  price: 15.00
+                  images: ["vp-11.png"]
+
+                - name: "Peixe Frito"
+                  description: "Peixe crocante e delicioso"
+                  price: 14.50
+                  images: ["vp-15.png"]
+
+            - name: "Sobremesas"
+              offerings:
+                - name: "Doces"
+                  description: "Variedade de doces deliciosos"
+                  price: 6.00
+                  images: ["vp-10.png"]
+
+                - name: "Bolo de Brigadeiro"
+                  description: "Bolo caseiro de brigadeiro"
+                  price: 5.50
+                  images: ["vp-14.png"]
+
+        # ======================================================
+        # CATALOGO ALMOÇO - ENGLISH
+        # ======================================================
+        - language: "EN"
+          name: "Lunch"
+          categories:
+            - name: "Starters"
+              offerings:
+                - name: "French Fries"
+                  description: "Crispy and delicious"
+                  price: 4.00
+                  images: ["vp-5.png"]
+
+                - name: "Snacks"
+                  description: "Assorted mini snacks"
+                  price: 5.00
+                  images: ["vp-9.png"]
+
+                - name: "Shrimp Bites"
+                  description: "Small and tasty"
+                  price: 6.00
+                  images: ["vp-12.png"]
+
+            - name: "Main Courses"
+              offerings:
+                - name: "Pizza"
+                  description: "Fresh dough with cheese and toppings"
+                  price: 12.00
+                  images: ["vp-1.png"]
+
+                - name: "Hamburger"
+                  description: "Juicy beef with cheese"
+                  price: 10.50
+                  images: ["vp-2.png"]
+
+                - name: "Fried Chicken"
+                  description: "Crispy and tasty"
+                  price: 11.00
+                  images: ["vp-6.png"]
+
+                - name: "Tacos"
+                  description: "With meat and special spices"
+                  price: 9.50
+                  images: ["vp-7.png"]
+
+                - name: "Sushi"
+                  description: "Fresh fish with seasoned rice"
+                  price: 15.00
+                  images: ["vp-11.png"]
+
+                - name: "Fried Fish"
+                  description: "Crispy and delicious fish"
+                  price: 14.50
+                  images: ["vp-15.png"]
+
+            - name: "Desserts"
+              offerings:
+                - name: "Sweets"
+                  description: "Assorted delicious sweets"
+                  price: 6.00
+                  images: ["vp-10.png"]
+
+                - name: "Brigadeiro Cake"
+                  description: "Homemade brigadeiro cake"
+                  price: 5.50
+                  images: ["vp-14.png"]
+
+        # ======================================================
+        # CATALOGO JANTAR - PORTUGUÊS
+        # ======================================================
+        - language: "PT"
+          name: "Jantar"
+          categories:
+            - name: "Entradas"
+              offerings:
+                - name: "Toucinho de Carne"
+                  description: "Pequenos e suculentos"
+                  price: 6.00
+                  images: ["vp-16.png"]
+
+                - name: "Sopa do Dia"
+                  description: "Sabor especial do chef"
+                  price: 3.50
+                  images: ["vp-8.png"]
+
+            - name: "Pratos Principais"
+              offerings:
+                - name: "Frango ao Molho"
+                  description: "Frango grelhado com molho especial"
+                  price: 19.50
+                  images: ["vp-6.png"]
+
+                - name: "Robalo Grelhado"
+                  description: "Robalo com legumes frescos"
+                  price: 20.00
+                  images: ["vp-15.png"]
+
+        # ======================================================
+        # CATALOGO JANTAR - ENGLISH
+        # ======================================================
+        - language: "EN"
+          name: "Dinner"
+          categories:
+            - name: "Starters"
+              offerings:
+                - name: "Meat Bites"
+                  description: "Small and juicy"
+                  price: 6.00
+                  images: ["vp-16.png"]
+
+                - name: "Soup of the Day"
+                  description: "Chef's special flavor"
+                  price: 3.50
+                  images: ["vp-8.png"]
+
+            - name: "Main Courses"
+              offerings:
+                - name: "Chicken with Sauce"
+                  description: "Grilled chicken with special sauce"
+                  price: 19.50
+                  images: ["vp-6.png"]
+
+                - name: "Grilled Sea Bass"
+                  description: "Sea bass with fresh vegetables"
+                  price: 20.00
+                  images: ["vp-15.png"]
+
