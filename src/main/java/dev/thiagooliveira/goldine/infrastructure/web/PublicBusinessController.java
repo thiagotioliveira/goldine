@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/public")
-public class BusinessController {
+public class PublicBusinessController {
 
   private final GetBusiness getBusiness;
   private final ObjectMapper objectMapper;
 
-  public BusinessController(GetBusiness getBusiness) {
+  public PublicBusinessController(GetBusiness getBusiness) {
     this.getBusiness = getBusiness;
     this.objectMapper = new ObjectMapper();
   }
