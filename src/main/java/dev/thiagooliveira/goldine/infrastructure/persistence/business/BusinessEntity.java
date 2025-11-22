@@ -3,6 +3,7 @@ package dev.thiagooliveira.goldine.infrastructure.persistence.business;
 import dev.thiagooliveira.goldine.domain.model.Business;
 import dev.thiagooliveira.goldine.domain.model.Catalog;
 import dev.thiagooliveira.goldine.domain.model.Language;
+import dev.thiagooliveira.goldine.domain.model.SocialLink;
 import dev.thiagooliveira.goldine.infrastructure.persistence.business.catalog.CatalogEntity;
 import jakarta.persistence.*;
 import java.util.*;
@@ -61,12 +62,16 @@ public class BusinessEntity {
         this.catalogs != null
             ? this.catalogs.stream().map(CatalogEntity::toDomain).collect(Collectors.toSet())
             : new HashSet<>();
+    Set<SocialLink> links =
+        socialLinks != null
+            ? socialLinks.stream().map(SocialLinkEntity::toDomain).collect(Collectors.toSet())
+            : new HashSet<>();
     return Business.load(
         this.id,
         this.name,
         this.alias,
         Optional.ofNullable(this.address),
-        new HashSet<>(),
+        links,
         languages,
         catalogs);
   }

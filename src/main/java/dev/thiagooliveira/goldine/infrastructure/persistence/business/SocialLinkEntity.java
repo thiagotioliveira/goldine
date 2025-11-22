@@ -55,5 +55,9 @@ public class SocialLinkEntity {
 
   public void setBusiness(BusinessEntity business) {
     this.business = business;
+    if (this.id == null) {
+      this.id = new SocialLinkKey();
+    }
+    this.id.setBusinessId(business.getId());
   }
 }
