@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(BusinessNotFoundException.class)
-    public String handle404(BusinessNotFoundException ex, Model model) {
-        return "404";
-    }
+  @ExceptionHandler(BusinessNotFoundException.class)
+  public String handle404(BusinessNotFoundException ex, Model model) {
+    return "404";
+  }
 }
