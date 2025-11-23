@@ -1,10 +1,10 @@
-package dev.thiagooliveira.goldine.infrastructure.persistence.business.category;
+package dev.thiagooliveira.goldine.infrastructure.persistence.command.business.category;
 
 import dev.thiagooliveira.goldine.domain.model.Category;
 import dev.thiagooliveira.goldine.domain.model.Language;
 import dev.thiagooliveira.goldine.domain.model.Offering;
-import dev.thiagooliveira.goldine.infrastructure.persistence.business.catalog.CatalogEntity;
-import dev.thiagooliveira.goldine.infrastructure.persistence.business.offering.OfferingEntity;
+import dev.thiagooliveira.goldine.infrastructure.persistence.command.business.catalog.CatalogEntity;
+import dev.thiagooliveira.goldine.infrastructure.persistence.command.business.offering.OfferingEntity;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;

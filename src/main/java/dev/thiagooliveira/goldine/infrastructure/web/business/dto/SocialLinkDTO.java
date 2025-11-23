@@ -1,4 +1,4 @@
-package dev.thiagooliveira.goldine.infrastructure.web.dto;
+package dev.thiagooliveira.goldine.infrastructure.web.business.dto;
 
 import dev.thiagooliveira.goldine.domain.model.SocialLink;
 

@@ -1,4 +1,4 @@
-package dev.thiagooliveira.goldine.infrastructure.web.dto;
+package dev.thiagooliveira.goldine.infrastructure.web.business.dto;
 
 import static dev.thiagooliveira.goldine.infrastructure.util.Constants.*;
 

@@ -1,4 +1,4 @@
-package dev.thiagooliveira.goldine.infrastructure.web;
+package dev.thiagooliveira.goldine.infrastructure.web.business;
 
 import dev.thiagooliveira.goldine.infrastructure.web.exception.BusinessNotFoundException;
 import org.springframework.ui.Model;

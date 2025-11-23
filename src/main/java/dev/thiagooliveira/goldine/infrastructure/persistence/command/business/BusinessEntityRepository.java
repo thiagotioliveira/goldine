@@ -1,4 +1,4 @@
-package dev.thiagooliveira.goldine.infrastructure.persistence.business;
+package dev.thiagooliveira.goldine.infrastructure.persistence.command.business;
 
 import java.util.Optional;
 import java.util.UUID;

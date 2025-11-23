@@ -1,4 +1,4 @@
-package dev.thiagooliveira.goldine.infrastructure.persistence.business;
+package dev.thiagooliveira.goldine.infrastructure.persistence.command.business;
 
 import dev.thiagooliveira.goldine.domain.model.SocialLink;
 import dev.thiagooliveira.goldine.domain.model.SocialLinkType;

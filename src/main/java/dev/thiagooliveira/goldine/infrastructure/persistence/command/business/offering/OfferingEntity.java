@@ -1,8 +1,8 @@
-package dev.thiagooliveira.goldine.infrastructure.persistence.business.offering;
+package dev.thiagooliveira.goldine.infrastructure.persistence.command.business.offering;
 
 import dev.thiagooliveira.goldine.domain.model.Language;
 import dev.thiagooliveira.goldine.domain.model.Offering;
-import dev.thiagooliveira.goldine.infrastructure.persistence.business.category.CategoryEntity;
+import dev.thiagooliveira.goldine.infrastructure.persistence.command.business.category.CategoryEntity;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;

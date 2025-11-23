@@ -1,4 +1,4 @@
-package dev.thiagooliveira.goldine.infrastructure.persistence.business.offering;
+package dev.thiagooliveira.goldine.infrastructure.persistence.command.business.offering;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

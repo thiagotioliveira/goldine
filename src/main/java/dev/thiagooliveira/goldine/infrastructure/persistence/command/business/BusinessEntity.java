@@ -1,10 +1,10 @@
-package dev.thiagooliveira.goldine.infrastructure.persistence.business;
+package dev.thiagooliveira.goldine.infrastructure.persistence.command.business;
 
 import dev.thiagooliveira.goldine.domain.model.Business;
 import dev.thiagooliveira.goldine.domain.model.Catalog;
 import dev.thiagooliveira.goldine.domain.model.Language;
 import dev.thiagooliveira.goldine.domain.model.SocialLink;
-import dev.thiagooliveira.goldine.infrastructure.persistence.business.catalog.CatalogEntity;
+import dev.thiagooliveira.goldine.infrastructure.persistence.command.business.catalog.CatalogEntity;
 import jakarta.persistence.*;
 import java.util.*;
 import java.util.stream.Collectors;

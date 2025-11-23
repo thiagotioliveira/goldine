@@ -1,4 +1,4 @@
-package dev.thiagooliveira.goldine.infrastructure.persistence.business;
+package dev.thiagooliveira.goldine.infrastructure.persistence.command.business;
 
 import dev.thiagooliveira.goldine.domain.model.Business;
 import dev.thiagooliveira.goldine.domain.repository.BusinessRepository;
