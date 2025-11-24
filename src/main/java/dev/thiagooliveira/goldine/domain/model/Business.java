@@ -184,7 +184,7 @@ public class Business {
         .flatMap(catalog -> catalog.getCategories().stream())
         .filter(
             category ->
-                category.getName().equals(categoryName) && category.getLanguage().equals(language))
+                category.getName().equalsIgnoreCase(categoryName) && category.getLanguage().equals(language))
         .findFirst();
   }
 
