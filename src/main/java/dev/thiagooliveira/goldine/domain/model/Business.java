@@ -119,8 +119,11 @@ public class Business {
   public void moveCategory(Category category, UUID newCatalogId) {
     // encontrar novo catálogo
     var newCatalog = findCatalog(newCatalogId).orElseThrow(CatalogNotFoundException::new);
+    if (!newCatalog.getLanguage().equals(category.getLanguage()))
+      throw new DomainException("Language of category and catalog must be the same");
+    addCategory(newCatalogId, category);
     // adiciona primeiro
-    newCatalog.addCategory(category);
+    // newCatalog.addCategory(category);
     var tempList = new ArrayList<>(catalogs);
     tempList.removeIf(i -> i.getId().equals(newCatalogId));
     for (Catalog catalog : tempList) {

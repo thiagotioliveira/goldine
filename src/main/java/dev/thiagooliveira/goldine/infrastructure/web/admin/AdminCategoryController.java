@@ -106,6 +106,7 @@ public class AdminCategoryController {
       return index(model);
     } catch (DomainException | ApplicationException | WebException e) {
       model.addAttribute("category", updateCategoryDTO);
+      model.addAttribute("catalogs", catalogQuery.findAll(applicationContext.getBusinessId()));
       model.addAttribute("errorMessage", e.getMessage());
       return "admin/business/category/category-form";
     }
