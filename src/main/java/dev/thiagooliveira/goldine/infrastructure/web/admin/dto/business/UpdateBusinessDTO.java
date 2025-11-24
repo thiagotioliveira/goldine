@@ -1,19 +1,19 @@
-package dev.thiagooliveira.goldine.infrastructure.web.admin.dto;
+package dev.thiagooliveira.goldine.infrastructure.web.admin.dto.business;
 
-import dev.thiagooliveira.goldine.infrastructure.persistence.query.projection.BusinessProjection;
+import dev.thiagooliveira.goldine.infrastructure.persistence.query.projection.business.BusinessProjection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class EditBusinessDTO {
+public class UpdateBusinessDTO {
 
   private String name;
   private String address;
   private List<String> supportedLanguages;
   private List<SocialLinkDTO> socialLinks;
 
-  public EditBusinessDTO() {}
+  public UpdateBusinessDTO() {}
 
-  public EditBusinessDTO(BusinessProjection projection) {
+  public UpdateBusinessDTO(BusinessProjection projection) {
     this.name = projection.getName();
     this.address = projection.getAddress();
     this.supportedLanguages = projection.getSupportedLanguages().stream().map(Enum::name).toList();

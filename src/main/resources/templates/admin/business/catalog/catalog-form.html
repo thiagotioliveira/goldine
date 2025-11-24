@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{admin/fragments/layout :: layout(~{::content})}">
+<div th:fragment="content">
+
+    <h2 th:text="${catalog.id != null ? 'Edit Catalog' : 'New Catalog'}"></h2>
+
+    <form th:action="@{/admin/catalogs/save}" method="post" th:object="${catalog}">
+        <input type="hidden" th:field="*{id}">
+        <input type="hidden" th:field="*{businessId}">
+
+        <div  class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control"
+                   th:name="name"
+                   th:value="${catalog.name}">
+        </div>
+
+        <div th:each="lang : ${T(dev.thiagooliveira.goldine.domain.model.Language).values()}">
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="radio"
+                       th:field="*{language}"
+                       th:value="${lang}"
+                       th:id="${'lang-' + lang}">
+
+                <label class="form-check-label"
+                       th:for="${'lang-' + lang}"
+                       th:text="${lang.label}">
+                </label>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+            <a th:href="@{/admin/catalogs}" class="btn btn-secondary me-2">Cancel</a>
+            <button type="submit" class="btn btn-success">Save</button>
+        </div>
+    </form>
+
+</div>
+</html>

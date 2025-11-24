@@ -1,7 +1,7 @@
-package dev.thiagooliveira.goldine.application.usecase.command;
+package dev.thiagooliveira.goldine.application.usecase;
 
 import dev.thiagooliveira.goldine.application.exception.BusinessNotFoundException;
-import dev.thiagooliveira.goldine.application.usecase.command.dto.UpdateBusinessInput;
+import dev.thiagooliveira.goldine.application.usecase.dto.UpdateBusinessInput;
 import dev.thiagooliveira.goldine.domain.model.Business;
 import dev.thiagooliveira.goldine.domain.repository.BusinessRepository;
 import java.util.UUID;

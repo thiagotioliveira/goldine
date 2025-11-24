@@ -1,4 +1,4 @@
-package dev.thiagooliveira.goldine.application.usecase.command;
+package dev.thiagooliveira.goldine.application.usecase;
 
 import dev.thiagooliveira.goldine.domain.model.Business;
 import dev.thiagooliveira.goldine.domain.repository.BusinessRepository;

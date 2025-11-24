@@ -1,7 +1,7 @@
-package dev.thiagooliveira.goldine.application.usecase.command;
+package dev.thiagooliveira.goldine.application.usecase;
 
 import dev.thiagooliveira.goldine.application.exception.ApplicationException;
-import dev.thiagooliveira.goldine.application.usecase.command.dto.CreateBusinessInput;
+import dev.thiagooliveira.goldine.application.usecase.dto.CreateBusinessInput;
 import dev.thiagooliveira.goldine.domain.model.Business;
 import dev.thiagooliveira.goldine.domain.repository.BusinessRepository;
 

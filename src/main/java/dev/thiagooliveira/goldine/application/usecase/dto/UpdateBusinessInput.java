@@ -1,4 +1,4 @@
-package dev.thiagooliveira.goldine.application.usecase.command.dto;
+package dev.thiagooliveira.goldine.application.usecase.dto;
 
 import dev.thiagooliveira.goldine.domain.model.Language;
 import dev.thiagooliveira.goldine.domain.model.SocialLink;

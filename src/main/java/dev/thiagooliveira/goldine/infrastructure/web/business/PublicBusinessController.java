@@ -2,7 +2,7 @@ package dev.thiagooliveira.goldine.infrastructure.web.business;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dev.thiagooliveira.goldine.application.usecase.command.GetBusiness;
+import dev.thiagooliveira.goldine.application.usecase.GetBusiness;
 import dev.thiagooliveira.goldine.infrastructure.web.business.dto.BusinessDTO;
 import dev.thiagooliveira.goldine.infrastructure.web.exception.BusinessNotFoundException;
 import org.springframework.stereotype.Controller;

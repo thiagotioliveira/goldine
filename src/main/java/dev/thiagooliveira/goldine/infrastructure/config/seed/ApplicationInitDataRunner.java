@@ -1,7 +1,7 @@
 package dev.thiagooliveira.goldine.infrastructure.config.seed;
 
-import dev.thiagooliveira.goldine.application.usecase.command.*;
-import dev.thiagooliveira.goldine.application.usecase.command.dto.*;
+import dev.thiagooliveira.goldine.application.usecase.*;
+import dev.thiagooliveira.goldine.application.usecase.dto.*;
 import dev.thiagooliveira.goldine.domain.model.Language;
 import dev.thiagooliveira.goldine.domain.model.SocialLink;
 import dev.thiagooliveira.goldine.domain.model.SocialLinkType;

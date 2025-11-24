@@ -1,4 +1,4 @@
-package dev.thiagooliveira.goldine.infrastructure.persistence.query.projection;
+package dev.thiagooliveira.goldine.infrastructure.persistence.query.projection.business;
 
 import dev.thiagooliveira.goldine.domain.model.Language;
 import java.util.List;

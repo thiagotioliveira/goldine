@@ -1,10 +1,10 @@
-package dev.thiagooliveira.goldine.infrastructure.persistence.query;
+package dev.thiagooliveira.goldine.infrastructure.persistence.query.business;
 
 import dev.thiagooliveira.goldine.domain.model.Language;
 import dev.thiagooliveira.goldine.infrastructure.persistence.command.business.BusinessEntity;
 import dev.thiagooliveira.goldine.infrastructure.persistence.command.business.SocialLinkEntity;
-import dev.thiagooliveira.goldine.infrastructure.persistence.query.projection.BusinessProjection;
-import dev.thiagooliveira.goldine.infrastructure.persistence.query.projection.SocialLinkProjection;
+import dev.thiagooliveira.goldine.infrastructure.persistence.query.projection.business.BusinessProjection;
+import dev.thiagooliveira.goldine.infrastructure.persistence.query.projection.business.SocialLinkProjection;
 import jakarta.persistence.EntityManager;
 import java.util.*;
 import java.util.stream.Collectors;

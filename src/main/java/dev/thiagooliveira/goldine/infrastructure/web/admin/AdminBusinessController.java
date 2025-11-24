@@ -1,14 +1,14 @@
 package dev.thiagooliveira.goldine.infrastructure.web.admin;
 
-import dev.thiagooliveira.goldine.application.usecase.command.GetBusiness;
-import dev.thiagooliveira.goldine.application.usecase.command.UpdateBusiness;
-import dev.thiagooliveira.goldine.application.usecase.command.dto.UpdateBusinessInput;
+import dev.thiagooliveira.goldine.application.usecase.GetBusiness;
+import dev.thiagooliveira.goldine.application.usecase.UpdateBusiness;
+import dev.thiagooliveira.goldine.application.usecase.dto.UpdateBusinessInput;
 import dev.thiagooliveira.goldine.domain.model.Language;
 import dev.thiagooliveira.goldine.domain.model.SocialLink;
 import dev.thiagooliveira.goldine.domain.model.SocialLinkType;
 import dev.thiagooliveira.goldine.infrastructure.config.context.ApplicationContext;
-import dev.thiagooliveira.goldine.infrastructure.persistence.query.BusinessQuery;
-import dev.thiagooliveira.goldine.infrastructure.web.admin.dto.EditBusinessDTO;
+import dev.thiagooliveira.goldine.infrastructure.persistence.query.business.BusinessQuery;
+import dev.thiagooliveira.goldine.infrastructure.web.admin.dto.business.UpdateBusinessDTO;
 import dev.thiagooliveira.goldine.infrastructure.web.exception.BusinessNotFoundException;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Controller;
@@ -44,22 +44,22 @@ public class AdminBusinessController {
         businessQuery
             .findById(applicationContext.getBusinessId())
             .orElseThrow(BusinessNotFoundException::new);
-    model.addAttribute("business", new EditBusinessDTO(business));
+    model.addAttribute("business", new UpdateBusinessDTO(business));
     return "admin/business/business-form";
   }
 
   @PostMapping("/save")
-  public String save(@ModelAttribute EditBusinessDTO editBusinessDTO, Model model) {
+  public String save(@ModelAttribute UpdateBusinessDTO updateBusinessDTO, Model model) {
     var business =
         updateBusiness.execute(
             applicationContext.getBusinessId(),
             new UpdateBusinessInput(
-                editBusinessDTO.getName(),
-                editBusinessDTO.getAddress(),
-                editBusinessDTO.getSupportedLanguages().stream()
+                updateBusinessDTO.getName(),
+                updateBusinessDTO.getAddress(),
+                updateBusinessDTO.getSupportedLanguages().stream()
                     .map(Language::valueOf)
                     .collect(Collectors.toSet()),
-                editBusinessDTO.getSocialLinks().stream()
+                updateBusinessDTO.getSocialLinks().stream()
                     .map(s -> SocialLink.create(SocialLinkType.valueOf(s.getType()), s.getUrl()))
                     .collect(Collectors.toSet())));
     model.addAttribute("successMessage", "Business updated successfully!");
