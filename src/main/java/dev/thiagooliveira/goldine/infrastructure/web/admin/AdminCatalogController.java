@@ -71,7 +71,7 @@ public class AdminCatalogController {
     try {
       this.deleteCatalog.execute(applicationContext.getBusinessId(), id);
       redirectAttributes.addFlashAttribute("successMessage", "Catalog deleted successfully!");
-    } catch (DomainException e) {
+    } catch (DomainException | ApplicationException | WebException e) {
       redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
     }
     return "redirect:/admin/catalogs";
@@ -99,7 +99,7 @@ public class AdminCatalogController {
     } catch (DomainException | ApplicationException | WebException e) {
       model.addAttribute("catalog", updateCatalogDTO);
       model.addAttribute("errorMessage", e.getMessage());
+      return "admin/business/catalog/catalog-form";
     }
-    return "admin/business/catalog/catalog-form";
   }
 }

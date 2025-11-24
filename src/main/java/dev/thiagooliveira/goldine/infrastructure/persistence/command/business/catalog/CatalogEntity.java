@@ -28,7 +28,7 @@ public class CatalogEntity {
   @Column(nullable = false)
   private String name;
 
-  @OneToMany(mappedBy = "catalog", cascade = CascadeType.ALL, orphanRemoval = true)
+  @OneToMany(mappedBy = "catalog", cascade = CascadeType.ALL)
   private List<CategoryEntity> categories = new ArrayList<>();
 
   public CatalogEntity() {}

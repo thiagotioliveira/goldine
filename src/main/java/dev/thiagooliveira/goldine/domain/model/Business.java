@@ -116,12 +116,16 @@ public class Business {
     catalog.addCategory(category);
   }
 
-  public void moveCategory(UUID categoryId, UUID newCatalogId) {
-    var category = findCategory(categoryId).orElseThrow(CategoryNotFoundException::new);
-    for (Catalog catalog : catalogs) {
-      catalog.getCategories().removeIf(cat -> cat.getId().equals(category.getId()));
+  public void moveCategory(Category category, UUID newCatalogId) {
+    // encontrar novo catálogo
+    var newCatalog = findCatalog(newCatalogId).orElseThrow(CatalogNotFoundException::new);
+    // adiciona primeiro
+    newCatalog.addCategory(category);
+    var tempList = new ArrayList<>(catalogs);
+    tempList.removeIf(i -> i.getId().equals(newCatalogId));
+    for (Catalog catalog : tempList) {
+      if (catalog.removeCategory(category.getId())) break;
     }
-    addCategory(newCatalogId, category);
   }
 
   public void removeCategory(UUID categoryId) {
