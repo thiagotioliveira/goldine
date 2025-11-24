@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{admin/fragments/layout :: layout(~{::content})}">
+<div th:fragment="content">
+
+    <h2 th:text="${offering.id != null ? 'Edit Offering' : 'New Offering'}"></h2>
+
+    <form th:action="@{/admin/offerings/save}" method="post" th:object="${offering}">
+        <input type="hidden" th:field="*{id}">
+        <input type="hidden" th:field="*{originalCategoryId}">
+
+        <div  class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control"
+                   th:name="name"
+                   th:value="${offering.name}">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea class="form-control"
+                      th:name="description"
+                      th:text="${offering.description}"
+                      rows="4"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input type="number" class="form-control"
+                   th:name="price"
+                   th:value="${offering.price}"
+                   step="0.01"
+                   min="0">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Category</label>
+            <select class="form-select" th:field="*{categoryId}">
+                <option value="" disabled selected>Select a category</option>
+
+                <option th:each="i : ${categories}"
+                        th:value="${i.id}"
+                        th:text="${i.catalogName + ' -> ' + i.name + ' (' + i.language.label + ')'}">
+                </option>
+            </select>
+        </div>
+
+        <div class="d-flex justify-content-end">
+            <a th:href="@{/admin/offerings}" class="btn btn-secondary me-2">Cancel</a>
+            <button type="submit" class="btn btn-success">Save</button>
+        </div>
+    </form>
+
+</div>
+</html>

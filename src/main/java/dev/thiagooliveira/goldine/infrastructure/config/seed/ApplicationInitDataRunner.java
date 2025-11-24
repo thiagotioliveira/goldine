@@ -77,7 +77,6 @@ public class ApplicationInitDataRunner implements CommandLineRunner {
           var offering =
               createOffering.execute(
                   business.getId(),
-                  catalog.getId(),
                   category.getId(),
                   new CreateOfferingInput(
                       category.getLanguage(),

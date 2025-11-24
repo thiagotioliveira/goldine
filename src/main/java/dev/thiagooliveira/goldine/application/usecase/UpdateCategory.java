@@ -25,8 +25,9 @@ public class UpdateCategory {
         .findCategory(input.catalogId(), category.getLanguage(), input.name())
         .ifPresent(
             c -> {
-              throw new ApplicationException(
-                  String.format("Category %s already exists", input.name()));
+              if (!c.getId().equals(categoryId))
+                throw new ApplicationException(
+                    String.format("Category %s already exists", input.name()));
             });
     category.update(input.name());
     if (!originalCatalogId.equals(input.catalogId())) {

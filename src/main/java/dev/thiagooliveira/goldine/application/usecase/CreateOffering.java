@@ -14,8 +14,7 @@ public class CreateOffering {
     this.businessRepository = businessRepository;
   }
 
-  public Offering execute(
-      UUID businessId, UUID catalogId, UUID categoryId, CreateOfferingInput input) {
+  public Offering execute(UUID businessId, UUID categoryId, CreateOfferingInput input) {
     var business =
         this.businessRepository.findById(businessId).orElseThrow(BusinessNotFoundException::new);
     var offering =

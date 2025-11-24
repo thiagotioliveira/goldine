@@ -31,7 +31,7 @@ public class OfferingEntity {
 
   @Column private String description;
 
-  @OneToMany(mappedBy = "offering", cascade = CascadeType.ALL, orphanRemoval = true)
+  @OneToMany(mappedBy = "offering", cascade = CascadeType.ALL)
   private List<OfferingImageEntity> images = new ArrayList<>();
 
   public OfferingEntity() {}

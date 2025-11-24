@@ -131,6 +131,20 @@ public class Business {
     }
   }
 
+  public void moveOffering(Offering offering, UUID newCategoryId) {
+    var category = findCategory(newCategoryId).orElseThrow(CategoryNotFoundException::new);
+    if (!category.getLanguage().equals(offering.getLanguage()))
+      throw new DomainException("Language of offering and category must be the same");
+    addOffering(newCategoryId, offering);
+    externalFor:
+    for (Catalog catalog : catalogs) {
+      for (Category cat : catalog.getCategories()) {
+        if (cat.getId().equals(newCategoryId)) continue;
+        if (cat.removeOffering(offering.getId())) break externalFor;
+      }
+    }
+  }
+
   public void removeCategory(UUID categoryId) {
     var category = findCategory(categoryId).orElseThrow(CategoryNotFoundException::new);
     if (!category.getOfferings().isEmpty()) {
@@ -145,7 +159,7 @@ public class Business {
     if (offering == null) {
       throw new DomainException("Offering cannot be null");
     }
-    findOffering(offering.getLanguage(), offering.getName())
+    findOffering(categoryId, offering.getLanguage(), offering.getName())
         .ifPresent(
             o -> {
               throw new DomainException(
@@ -184,13 +198,23 @@ public class Business {
         .flatMap(catalog -> catalog.getCategories().stream())
         .filter(
             category ->
-                category.getName().equalsIgnoreCase(categoryName) && category.getLanguage().equals(language))
+                category.getName().equalsIgnoreCase(categoryName)
+                    && category.getLanguage().equals(language))
         .findFirst();
   }
 
-  public Optional<Offering> findOffering(Language language, String offeringName) {
+  public Optional<Offering> findOffering(UUID offeringId) {
     return this.catalogs.stream()
         .flatMap(catalog -> catalog.getCategories().stream())
+        .flatMap(category -> category.getOfferings().stream())
+        .filter(offering -> offering.getId().equals(offeringId))
+        .findFirst();
+  }
+
+  public Optional<Offering> findOffering(UUID categoryId, Language language, String offeringName) {
+    return this.catalogs.stream()
+        .flatMap(catalog -> catalog.getCategories().stream())
+        .filter(category -> category.getId().equals(categoryId))
         .flatMap(category -> category.getOfferings().stream())
         .filter(
             offering ->

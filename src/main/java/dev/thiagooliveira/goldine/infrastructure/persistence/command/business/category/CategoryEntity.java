@@ -28,7 +28,7 @@ public class CategoryEntity {
   @JoinColumn(name = "catalog_id")
   private CatalogEntity catalog;
 
-  @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<OfferingEntity> offerings = new ArrayList<>();
 
   public CategoryEntity() {}
