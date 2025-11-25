@@ -13,6 +13,8 @@ public class ApplicationContext {
   }
 
   public void setBusinessId(UUID businessId) {
-    this.businessId = businessId;
+    if (this.businessId == null) {
+      this.businessId = businessId;
+    }
   }
 }

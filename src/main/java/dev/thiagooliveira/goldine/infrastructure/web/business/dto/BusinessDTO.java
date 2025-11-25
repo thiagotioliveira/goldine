@@ -3,6 +3,7 @@ package dev.thiagooliveira.goldine.infrastructure.web.business.dto;
 import static dev.thiagooliveira.goldine.infrastructure.util.Constants.*;
 
 import dev.thiagooliveira.goldine.domain.model.Business;
+import dev.thiagooliveira.goldine.domain.model.Language;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,6 +34,35 @@ public class BusinessDTO {
         business.getSocialLinks().stream().map(SocialLinkDTO::new).collect(Collectors.toList());
     this.catalogs =
         business.getCatalogs().stream().map(CatalogDTO::new).collect(Collectors.toList());
+  }
+
+  private BusinessDTO(
+      String name,
+      String address,
+      String alias,
+      List<String> supportedLanguages,
+      List<SocialLinkDTO> socialLinks,
+      List<CatalogDTO> catalogs) {
+    this.colorPrimary = COLOR_PRIMARY;
+    this.colorSecondary = COLOR_SECONDARY;
+    this.backgroundColorPrimary = BACKGROUND_COLOR_PRIMARY;
+    this.backgroundColorSecondary = BACKGROUND_COLOR_SECONDARY;
+    this.name = name;
+    this.address = address;
+    this.alias = alias;
+    this.supportedLanguages = supportedLanguages;
+    this.socialLinks = socialLinks;
+    this.catalogs = catalogs;
+  }
+
+  public BusinessDTO with(Language language) {
+    return new BusinessDTO(
+        this.name,
+        this.address,
+        this.alias,
+        this.supportedLanguages,
+        this.socialLinks,
+        this.catalogs.stream().filter(c -> c.getLanguage().equals(language.name())).toList());
   }
 
   public String getColorPrimary() {

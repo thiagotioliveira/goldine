@@ -9,13 +9,13 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "app.seed")
 public class SeedProperties {
 
-  private Business business;
+  private List<Business> business;
 
-  public Business getBusiness() {
+  public List<Business> getBusiness() {
     return business;
   }
 
-  public void setBusiness(Business business) {
+  public void setBusiness(List<Business> business) {
     this.business = business;
   }
 

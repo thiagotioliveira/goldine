@@ -6,6 +6,7 @@ import dev.thiagooliveira.goldine.domain.model.Language;
 import dev.thiagooliveira.goldine.domain.model.SocialLink;
 import dev.thiagooliveira.goldine.domain.model.SocialLinkType;
 import dev.thiagooliveira.goldine.infrastructure.config.context.ApplicationContext;
+import java.util.List;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,64 +37,69 @@ public class ApplicationInitDataRunner implements CommandLineRunner {
   @Override
   @Transactional
   public void run(String... args) throws Exception {
-    SeedProperties.Business businessConfig = seedProperties.getBusiness();
+    List<SeedProperties.Business> list = seedProperties.getBusiness();
+    list.forEach(
+        businessConfig -> {
+          var business =
+              createBusiness.execute(
+                  new CreateBusinessInput(
+                      businessConfig.getName(),
+                      businessConfig.getSupportedLanguages().stream()
+                          .map(Language::valueOf)
+                          .collect(Collectors.toSet())));
 
-    var business =
-        createBusiness.execute(
-            new CreateBusinessInput(
-                businessConfig.getName(),
-                businessConfig.getSupportedLanguages().stream()
-                    .map(Language::valueOf)
-                    .collect(Collectors.toSet())));
+          applicationContext.setBusinessId(business.getId());
 
-    applicationContext.setBusinessId(business.getId());
-
-    business =
-        updateBusiness.execute(
-            business.getId(),
-            new UpdateBusinessInput(
-                business.getName(),
-                businessConfig.getAddress(),
-                business.getSupportedLanguages(),
-                businessConfig.getSocialLinks().stream()
-                    .map(s -> SocialLink.create(SocialLinkType.valueOf(s.getType()), s.getUrl()))
-                    .collect(Collectors.toSet())));
-
-    for (SeedProperties.Catalog catalogConfig : businessConfig.getCatalogs()) {
-      var catalog =
-          createCatalog.execute(
-              business.getId(),
-              new CreateCatalogInput(
-                  Language.valueOf(catalogConfig.getLanguage()), catalogConfig.getName()));
-
-      for (SeedProperties.Category categoryConfig : catalogConfig.getCategories()) {
-        var category =
-            createCategory.execute(
-                business.getId(),
-                new CreateCategoryInput(
-                    catalog.getId(), catalog.getLanguage(), categoryConfig.getName()));
-
-        for (SeedProperties.Offering offeringConfig : categoryConfig.getOfferings()) {
-          var offering =
-              createOffering.execute(
+          business =
+              updateBusiness.execute(
                   business.getId(),
-                  category.getId(),
-                  new CreateOfferingInput(
-                      category.getLanguage(),
-                      offeringConfig.getName(),
-                      offeringConfig.getDescription(),
-                      offeringConfig.getPrice(),
-                      offeringConfig.getImages()));
-        }
-      }
-    }
+                  new UpdateBusinessInput(
+                      business.getName(),
+                      businessConfig.getAddress(),
+                      business.getSupportedLanguages(),
+                      businessConfig.getSocialLinks().stream()
+                          .map(
+                              s ->
+                                  SocialLink.create(
+                                      SocialLinkType.valueOf(s.getType()), s.getUrl()))
+                          .collect(Collectors.toSet())));
 
-    log.info(
-        "\nBusiness created!\nId: {}\nName: {}\nAlias: {}\nAddres: {}\nSupported languages: {}",
-        business.getId(),
-        business.getName(),
-        business.getAlias(),
-        business.getAddress().orElse(null),
-        business.getSupportedLanguages());
+          for (SeedProperties.Catalog catalogConfig : businessConfig.getCatalogs()) {
+            var catalog =
+                createCatalog.execute(
+                    business.getId(),
+                    new CreateCatalogInput(
+                        Language.valueOf(catalogConfig.getLanguage()), catalogConfig.getName()));
+
+            for (SeedProperties.Category categoryConfig : catalogConfig.getCategories()) {
+              var category =
+                  createCategory.execute(
+                      business.getId(),
+                      new CreateCategoryInput(
+                          catalog.getId(), catalog.getLanguage(), categoryConfig.getName()));
+
+              for (SeedProperties.Offering offeringConfig : categoryConfig.getOfferings()) {
+                var offering =
+                    createOffering.execute(
+                        business.getId(),
+                        category.getId(),
+                        new CreateOfferingInput(
+                            category.getLanguage(),
+                            offeringConfig.getName(),
+                            offeringConfig.getDescription(),
+                            offeringConfig.getPrice(),
+                            offeringConfig.getImages()));
+              }
+            }
+          }
+
+          log.info(
+              "\nBusiness created!\nId: {}\nName: {}\nAlias: {}\nAddres: {}\nSupported languages: {}",
+              business.getId(),
+              business.getName(),
+              business.getAlias(),
+              business.getAddress().orElse(null),
+              business.getSupportedLanguages());
+        });
   }
 }
