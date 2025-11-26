@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/boostrap.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <!-- Icons -->
+    <link rel="stylesheet" href="fonts/font-icons.css" />
+
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="images/logo/48.png" />
+    <link rel="apple-touch-icon-precomposed" href="images/logo/48.png" />
+
+    <title>home</title>
+    <style>
+        .modal.action-sheet .language-content {
+            height: 15vh;
+            overflow: auto;
+            border: 1px solid #ffffff;
+        }
+    </style>
+  </head>
+
+  <body class="appHome4">
+    <div class="preload preload-container">
+        <div class="preload-logo">
+          <div class="spinner"></div>
+        </div>
+      </div>
+
+    <div class="app home-4">
+        <div class="inner-headerbar fixed-top bg-primary st1">
+            <div class="header-home">
+                <div class="content">
+                    <h1>Good morning
+                        your coffee is ready!</h1>
+                </div>
+                <div class="right" data-bs-toggle="modal" data-bs-target="#selectLanguage" style="height: 100%">
+                    <a href="#" class="icon-filter-2" style="color: white"></a>
+                </div>
+            </div>
+            <span class="btn-sidebar primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 7H21" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path>
+                    <path d="M3 12H21" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path>
+                    <path d="M3 17H21" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path>
+                </svg>
+            </span>
+        </div>
+      <div class="tf-container pt-90 pb-70">
+        <!--
+        <div class="search-box">
+          <span class="icon icon-search"></span>
+          <input type="text" placeholder="Search your coffee..." />
+        </div>
+        -->
+        <div class="wrap-swiper">
+          <div class="swiper cate-swiper">
+            <div id="catalogSwiper" class="swiper-wrapper pt-24 pb-30">
+            </div>
+          </div>
+        </div>
+          <div id="categoryContent"></div>
+      </div>
+    </div>
+
+    <div class="modal fade action-sheet" id="selectLanguage">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content app language-content">
+                <h4 class="mb-12">Language</h4>
+                <div id="language-select" class="grid-2-cb">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade modalRight" id="modalRightFull">
+        <!--
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="header">
+                    <div class="tf-container">
+                        <div class="title-header-bar pt-20 pb-20">
+                            <a href="#" class="btn-close-modal" data-bs-dismiss="modal"><i class="icon-left"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body pb-30">
+                    <div class="tf-container">
+                        <div class="title-detail justify-center">
+                            <div class="content">
+                                <h1><a href="#" class="text-primary">Blue Mountain Coffee</a></h1>
+                                <ul class="review justify-center">
+                                    <li class="text">
+                                        <i class="icon-star"></i>
+                                        <span class="t-black">4.8</span>&nbsp;
+                                        (125)
+                                    </li>
+                                    <li class="dot-icon st1">
+                                    </li>
+                                    <li class="text">16 min</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner-wrapper mt-26">
+                        <div class="tf-container">
+                            <img src="images/product-detail/banner5.jpg" alt="images" class="banner-img3">
+                        </div>
+                    </div>
+                    <div class="section mt-30">
+                        <div class="tf-container">
+                            <ul class="nav nav-tabs tab-product-detail" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#small"  role="tab" aria-controls="small" aria-selected="true">Small</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#medium" role="tab" aria-controls="medium" aria-selected="false">Medium</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#large"  role="tab" aria-controls="large" aria-selected="false">Large</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content mt-26 tab-size mb-30">
+                                <div class="tab-pane fade show active" id="small" role="tabpanel">
+                                    <div class="sec-qty center">
+                                        <span class="btn-quantity minus-btn"><i class="icon-minus"></i></span>
+                                        <input type="number" name="number" value="2">
+                                        <span class="btn-quantity active plus-btn"><i class="icon-plus"></i></span>
+                                    </div>
+                                    <div class="total mt-16">
+                                        <p>Total Price:</p>
+                                        <span>$48.25</span>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="medium" role="tabpanel">
+                                    <div class="sec-qty center">
+                                        <span class="btn-quantity minus-btn"><i class="icon-minus"></i></span>
+                                        <input type="number" name="number" value="2">
+                                        <span class="btn-quantity active plus-btn"><i class="icon-plus"></i></span>
+                                    </div>
+                                    <div class="total mt-16">
+                                        <p>Total Price:</p>
+                                        <span>$48.25</span>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="large" role="tabpanel">
+                                    <div class="sec-qty center">
+                                        <span class="btn-quantity minus-btn"><i class="icon-minus"></i></span>
+                                        <input type="number" name="number" value="2">
+                                        <span class="btn-quantity active plus-btn"><i class="icon-plus"></i></span>
+                                    </div>
+                                    <div class="total mt-16">
+                                        <p>Total Price:</p>
+                                        <span>$48.25</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="mb-20">
+                                <a href="cart.html" class="tf-btn large primary"><i class="icon-buy"></i> Add to cart</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>-->
+    </div>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="js/carousel.js"></script>
+    <script type="text/javascript" src="js/sidebar.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script th:inline="javascript">
+        // Dados enviados pelo backend via Thymeleaf
+        const businessData = JSON.parse(/*[[${businessJson}]]*/ 'null');
+        let catalogs = businessData.catalogs;
+        // Elemento que contém as categorias e ofertas do catálogo selecionado
+        const catalogContent = document.getElementById("categoryContent");
+
+        /**
+         * Função principal chamada ao carregar a página.
+         * - Renderiza a lista de catálogos
+         * - Seleciona automaticamente o catálogo inicial
+         * - Inicializa os swipers dinâmicos
+         */
+        function init() {
+            showLanguageSelect();
+            filterByLanguage(businessData.supportedLanguages[0])
+        }
+
+        function rerender() {
+            showCatalogSwiper();
+            initializeDrinkSwipers();
+            addEventOfferings();
+        }
+
+        function addEventOfferings() {
+            document.querySelectorAll(".offering").forEach(el => {
+                el.addEventListener("click", () => {
+                    const id = el.dataset.id;
+                    for (const catalog of businessData.catalogs) {
+                        for (const category of catalog.categories) {
+                            const offering = category.offerings.find(o => o.id === id);
+                            if (offering) {
+                                openOfferingModal(offering);
+                            }
+                        }
+                    }
+                });
+            });
+        }
+
+        function showLanguageSelect(){
+            const container = document.getElementById("language-select");
+
+            businessData.supportedLanguages.forEach((language, index) => {
+                const a = document.createElement("a");
+                a.href = "#";
+                a.textContent = language;
+                a.classList.add("tf-btn", "large", "mb-15");
+
+                // alterna entre as duas classes
+                if (index % 2 === 0) {
+                    a.classList.add("outline-dashed");
+                } else {
+                    a.classList.add("primary", "rga-border");
+                }
+
+                a.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    filterByLanguage(language);
+                });
+
+                container.appendChild(a);
+            });
+        }
+
+        function filterByLanguage(language) {
+            catalogs = businessData.catalogs.filter(c => c.language === language);
+            rerender();
+        }
+
+        /**
+         * Inicializa todos os swipers do tipo "drink-swiper"
+         * após eles serem adicionados dinamicamente ao DOM.
+         */
+        function initializeDrinkSwipers() {
+            document.querySelectorAll(".drink-swiper").forEach(swiperEl => {
+                new Swiper(swiperEl, {
+                    slidesPerView: "auto",
+                    spaceBetween: 10
+                });
+            });
+        }
+
+        /**
+         * Renderiza o swiper de catálogos e configura o click
+         * para carregamento das categorias de cada catálogo.
+         */
+        function showCatalogSwiper() {
+            const catalogSwiper = document.getElementById("catalogSwiper");
+            catalogSwiper.innerHTML = "";
+            // Criar slides de catálogos dinamicamente
+            catalogs.forEach((catalog, index) => {
+                const slide = document.createElement("div");
+                slide.className = `swiper-slide ${index === 0 ? "ml-1" : ""}`;
+
+                slide.innerHTML = `
+                <a href="#" class="box-categories primary" data-catalog-id="${catalog.id}">
+                    <span>${catalog.name}</span>
+                </a>
+            `;
+
+                catalogSwiper.appendChild(slide);
+            });
+
+            // Ativar seleção de catálogo ao clicar
+            setupCatalogClickEvents();
+
+            // Selecionar automaticamente o primeiro catálogo
+            renderCategories(catalogs[0]);
+            markFirstCatalogAsActive();
+        }
+
+        /**
+         * Adiciona eventos de clique aos catálogos.
+         * Ao clicar:
+         *  - remove o ativo anterior
+         *  - adiciona classe no catálogo selecionado
+         *  - carrega suas categorias
+         */
+        function setupCatalogClickEvents() {
+            document.querySelectorAll('[data-catalog-id]').forEach(el => {
+                el.addEventListener("click", (e) => {
+                    e.preventDefault();
+
+                    // Remover classe ativa de todos os slides
+                    document.querySelectorAll("#catalogSwiper .swiper-slide")
+                        .forEach(slide => slide.classList.remove("swiper-slide-active"));
+
+                    // Adicionar classe ativa ao slide clicado
+                    const clickedSlide = e.currentTarget.closest(".swiper-slide");
+                    if (clickedSlide) clickedSlide.classList.add("swiper-slide-active");
+
+                    // Buscar e renderizar catálogo selecionado
+                    const catalogId = e.currentTarget.getAttribute("data-catalog-id");
+                    const catalog = businessData.catalogs.find(c => c.id === catalogId);
+
+                    if (catalog) {
+                        renderCategories(catalog);
+                        initializeDrinkSwipers();
+                        addEventOfferings();// reinicializa swipers porque DOM mudou
+                    }
+                });
+            });
+        }
+
+        /**
+         * Marca o primeiro catálogo como ativo visualmente.
+         */
+        function markFirstCatalogAsActive() {
+            const firstSlide = document.querySelector("#catalogSwiper .swiper-slide");
+            if (firstSlide) {
+                firstSlide.classList.add("swiper-slide-active");
+            }
+        }
+
+        /**
+         * Renderiza as categorias e os itens (offerings) de um catálogo.
+         * Isso recria toda a seção sempre que um catálogo é selecionado.
+         */
+        function renderCategories(catalog) {
+            catalogContent.innerHTML = ""; // limpar antes de adicionar novos elementos
+
+            catalog.categories.forEach((category, index) => {
+                const section = document.createElement("div");
+                section.className = `section ${index === 0 ? "bg" : ""}`;
+
+                section.innerHTML = `
+                <div class="title-bar">
+                    <h2>${category.name}</h2>` +
+                    //<a href="#" data-bs-toggle="modal" data-bs-target="#modalRightFull">
+                    //    View all <i class="icon-right"></i>
+                    //</a>
+                `</div>
+
+                <div class="wrap-swiper">
+                    <div class="swiper drink-swiper">
+                        <div class="swiper-wrapper pb-30 pt-12">
+                            ${renderOfferings(category.offerings)}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+                catalogContent.appendChild(section);
+            });
+        }
+
+        /**
+         * Renderiza os produtos (offerings) de cada categoria.
+         */
+        function renderOfferings(offerings) {
+            return offerings.map((off, index) => `
+            <div class="offering swiper-slide ${index === 0 ? "ml-2" : ""}" data-id="${off.id}">
+                <div class="tf-box-column lg">
+                    <div class="img-box">
+                        <img src="${off.images?.[0] || 'images/placeholder.png'}" alt="${off.name}" />
+                    </div>
+
+                    <div class="content-box">
+                        <h3><a href="#">${off.name}</a></h3>
+
+                        <ul class="review">
+                            <li>
+                                <i class="icon-star"></i>
+                                <span>4.8</span>&nbsp; (125)
+                            </li>
+                            <li class="dot-icon"></li>
+                            <li>16 min</li>
+                        </ul>
+
+                        <div class="box-price">
+                            <span class="price">${off.price}</span>
+                            <a href="#" class="btn-add">+</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `).join("");
+        }
+
+        function openOfferingModal(offering) {
+            // offering = { id, name, description, price, images }
+
+            const modalContent = `
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="header">
+                    <div class="tf-container">
+                        <div class="title-header-bar pt-20 pb-20">
+                            <a href="#" class="btn-close-modal" data-bs-dismiss="modal">
+                                <i class="icon-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-body pb-30">
+
+                    <div class="tf-container">
+                        <div class="title-detail justify-center">
+                            <div class="content">
+                                <h1><span class="text-primary">${offering.name}</span></h1>
+
+                                <ul class="review justify-center">
+                                    <li class="text"><i class="icon-star"></i> <span class="t-black">4.8</span>&nbsp;(125)</li>
+                                    <li class="dot-icon st1"></li>
+                                    <li class="text">16 min</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="banner-wrapper mt-26">
+                        <div class="tf-container">
+                            <img src="${offering.images[0]}" alt="${offering.name}" class="banner-img3">
+                        </div>
+                    </div>
+
+                    <div class="tf-container mt-20">
+                        <h3>${offering.description}</h3>
+                    </div>
+
+                    <div class="tf-container mt-30">
+                        <h3 class="text-primary">Preço: $${offering.price}</h3>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    `;
+
+            // insere dentro do modal
+            const modal = document.getElementById("modalRightFull");
+            modal.innerHTML = modalContent;
+
+            // abre o modal via Bootstrap
+            const bsModal = new bootstrap.Modal(modal);
+            bsModal.show();
+        }
+
+
+        // Inicializa toda a lógica quando o DOM estiver pronto
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+  </body>
+</html>

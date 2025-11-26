@@ -1,0 +1,72 @@
+.menubar-footer {
+    padding: 14px 15px 15px;
+    &.footer-fixed {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background: $white;
+    }
+    .inner {
+        padding-left: 0;
+        padding-right: 0;
+        display: flex;
+        max-width: 1024px;
+        margin-right: auto;
+        margin-left: auto;
+        align-items: center;
+        li {
+            padding: 0 0;
+            width: 20%;
+            a {
+                color: $text;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 4px;
+                font-size: 12px;
+                font-weight: 400;
+                line-height: normal;
+                span {
+                    font-size: 24px;
+                    color: $bg-icon;
+                }
+            }
+            &.active {
+                a {
+                    color: $primary;
+                    font-weight: 700;
+                    span {
+                        color: $primary;
+                    }
+                }
+            }
+        }
+    }
+}
+.footer {
+}
+.bottom-fixed {
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    position: fixed;
+
+    .inner {
+        max-width: 1024px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box;
+    }
+    &.btn-fixed {
+        bottom: 70px;
+    }
+    &.pb {
+        padding-bottom: 30px;
+        background-color: $white;
+    }
+}

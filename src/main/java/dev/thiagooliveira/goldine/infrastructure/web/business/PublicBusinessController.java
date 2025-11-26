@@ -3,6 +3,7 @@ package dev.thiagooliveira.goldine.infrastructure.web.business;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.thiagooliveira.goldine.application.usecase.GetBusiness;
+import dev.thiagooliveira.goldine.domain.model.Language;
 import dev.thiagooliveira.goldine.infrastructure.web.business.dto.BusinessDTO;
 import dev.thiagooliveira.goldine.infrastructure.web.exception.BusinessNotFoundException;
 import org.springframework.stereotype.Controller;
@@ -22,12 +23,22 @@ public class PublicBusinessController {
     this.objectMapper = new ObjectMapper();
   }
 
+  @RequestMapping()
+  public String index(Model model) throws JsonProcessingException {
+    var businessDto =
+        new BusinessDTO(
+                getBusiness.execute("food-parade").orElseThrow(BusinessNotFoundException::new));
+    model.addAttribute("business", businessDto);
+    model.addAttribute("businessJson", objectMapper.writeValueAsString(businessDto));
+    return "home-04";
+  }
+
   @RequestMapping("/{alias}")
   public String index(@PathVariable String alias, Model model) throws JsonProcessingException {
     var businessDto =
         new BusinessDTO(getBusiness.execute(alias).orElseThrow(BusinessNotFoundException::new));
     model.addAttribute("business", businessDto);
-    model.addAttribute("businessJson", new ObjectMapper().writeValueAsString(businessDto));
+    model.addAttribute("businessJson", objectMapper.writeValueAsString(businessDto));
     return "index";
   }
 }

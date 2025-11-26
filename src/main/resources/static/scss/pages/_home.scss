@@ -1,0 +1,241 @@
+.logo-app {
+    width: 109px;
+    height: auto;
+    margin: 0 auto;
+    img {
+        @include wh-full;
+    }
+}
+.app {
+    h1 {
+        padding-right: 50px;
+    }
+    .header-location {
+        p {
+            color: $white;
+            font-size: 14px;
+            font-weight: 400;
+            @include fh-normal;
+            opacity: 0.4000000059604645;
+        }
+        span {
+            margin-top: 6px;
+            color: $white;
+            font-size: 16px;
+            font-weight: 700;
+            @include fh-normal;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+    }
+
+    .wrap-swiper {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+
+    .header-home {
+        @include flex(center, space-between);
+        .left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            .avt {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                overflow: hidden;
+                img {
+                    @include wh-full;
+                }
+            }
+            .content {
+                p {
+                    color: $text;
+                    font-size: 14px;
+                    font-weight: 400;
+                    @include fh-normal;
+                }
+                h5 {
+                    margin-top: 3px;
+                    a {
+                        color: $text-black;
+                    }
+                }
+            }
+        }
+        .right {
+            padding: 6px 0px;
+            padding-left: 15px;
+            .icon-filter-2 {
+                font-size: 20px;
+                color: $primary;
+            }
+        }
+    }
+}
+.title-bar {
+    @include flex(center, space-between);
+    h2 {
+        @include flex(center, space-between);
+        gap: 8px;
+    }
+    a {
+        @include flex(center, center);
+        font-size: 14px;
+        font-weight: 400;
+        @include fh-normal;
+        gap: 2px;
+    }
+    &.st1 {
+        h3 {
+            font-weight: 700;
+            line-height: 28px;
+        }
+        a {
+            font-weight: 500;
+            color: $primary;
+        }
+    }
+}
+
+.home-2,
+.home-3,
+.home-4 {
+    h1 {
+        color: $white;
+    }
+}
+.home-2 {
+    position: relative;
+    &::before {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        content: "";
+        z-index: -1;
+        display: block;
+        height: 260px;
+        background: $primary;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+
+    .section {
+    }
+}
+.wrap-box-sm {
+    @include grid(2, 1fr, 12px, 12px);
+}
+.home-3 {
+    position: relative;
+    overflow-x: hidden;
+    &::before {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        content: "";
+        z-index: -1;
+        display: block;
+        height: 390px;
+        background: $primary;
+        border-bottom-left-radius: 55px;
+        border-bottom-right-radius: 55px;
+        margin: 0px -20px;
+    }
+    .section {
+        .wrap-grid {
+            @include grid(2, 1fr, 11px, 11px);
+
+            .box-collections {
+                .images {
+                    max-width: 100%;
+                    height: auto;
+                }
+            }
+        }
+        .tf-box-column {
+            h1 {
+                padding-right: 0px;
+            }
+        }
+    }
+}
+.home-4 {
+    position: relative;
+    overflow-x: hidden;
+    &::before {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        content: "";
+        z-index: -1;
+        display: block;
+        height: 390px;
+        background: $primary;
+        border-bottom-left-radius: 57px;
+        border-bottom-right-radius: 57px;
+        margin: 0px -29px;
+    }
+    .section {
+        &.bg {
+            .title-bar {
+                h2,
+                a {
+                    color: $white;
+                }
+            }
+        }
+    }
+    .recomand-sec {
+        .recomand-swiper {
+            .swiper-slide-active {
+                .recomand-box {
+                    box-shadow: unset;
+                }
+            }
+        }
+        .recomand-box {
+            .img-box {
+                .logo {
+                    max-width: 79px;
+                    height: 102px;
+                }
+            }
+        }
+    }
+}
+.home-5 {
+    .section {
+        #navtabs-drink1 {
+            .nav-item {
+                a {
+                    &:hover,
+                    &:active {
+                        background-color: $primary;
+                        color: $text-2;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}
+.wrap-box-layout {
+    @include grid(2, 1fr, 20px, 11px);
+}
+.home-6 {
+    .box-noti-cart {
+        position: fixed;
+        bottom: 90px;
+        left: 20px;
+        right: 20px;
+        max-width: 1024px;
+        margin: 0 auto;
+        z-index: 100;
+    }
+}

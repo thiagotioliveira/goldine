@@ -1,0 +1,128 @@
+.modal {
+    &.action-sheet {
+        z-index: 5000;
+        .modal-dialog {
+            padding: 0;
+            margin: 0;
+            bottom: 0;
+            position: fixed;
+            width: 100%;
+            min-width: 100%;
+            z-index: 10000;
+            transform: translate(0, 100%);
+        }
+        &.show {
+            .modal-dialog {
+                transform: translate(0, 0);
+            }
+        }
+        .modal-content {
+            box-shadow: none;
+            border: 0;
+            border-radius: 30px 30px 0px 0px;
+            padding: 20px;
+        }
+        .filter-content {
+            height: 80vh;
+            overflow: auto;
+            border: 1px solid $white;
+        }
+    }
+
+    &.modalRight {
+        .modal-dialog {
+            transform: translate(100%, 0) !important;
+            min-width: 100%;
+            margin: 0;
+            transition: 0.5s all !important;
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            .modal-content {
+                border-radius: 0;
+                border: 0;
+                margin: auto;
+                overflow: hidden;
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                top: 0;
+                .modal-body {
+                    overflow: auto;
+                    padding: 0;
+                    padding-bottom: 30px;
+                }
+            }
+        }
+        &.show {
+            .modal-dialog {
+                transform: translate(0, 0) !important;
+            }
+        }
+    }
+    &.fade {
+        transition: opacity 0.3s linear;
+    }
+    .pwa-content {
+        padding: 30px 0px;
+        background: $white;
+        pointer-events: auto;
+        .top {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+        .pwa-logo {
+            max-width: 60px;
+        }
+        p {
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            color: $text-black;
+            padding: 0px 12px;
+        }
+        .group-btn {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            .tf-btn {
+                padding: 10px 12px;
+                border-radius: 6px;
+                font-weight: 500;
+                background-color: $primary;
+                line-height: 1;
+                font-size: 12px;
+                width: unset;
+                display: inline-flex;
+                color: $white;
+            }
+            .btn-dismiss {
+                background: #e6ecec;
+                color: $primary;
+            }
+        }
+    }
+    .modal-content {
+        &.center {
+            border-radius: 16px;
+            padding: 20px;
+        }
+    }
+    .modal-header {
+        padding: 0;
+        border: none;
+        span {
+            font-size: 14px;
+            font-weight: 500;
+            font-style: normal;
+            line-height: normal;
+            color: $primary;
+        }
+    }
+}

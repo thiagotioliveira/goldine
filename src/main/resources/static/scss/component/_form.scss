@@ -1,0 +1,239 @@
+.tf-form {
+    input {
+        &:not(:last-child) {
+        }
+    }
+
+    &.primary {
+        input {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.1);
+            // color: $white;
+            &:focus,
+            &::placeholder {
+                color: $white;
+                opacity: 0.5;
+            }
+        }
+    }
+}
+
+.group-input {
+    position: relative;
+    display: flex;
+    .icon {
+        position: absolute;
+        left: 14px;
+        top: 16px;
+        font-size: 20px;
+        color: $color-icon1;
+    }
+    input {
+        padding-left: 42px;
+        height: 56px;
+        &:focus {
+            background-color: $bg-input;
+        }
+    }
+    &.group-ip-password {
+        .password-field:valid {
+            padding-right: 94px;
+        }
+        .box-auth-show {
+            display: none;
+            position: absolute;
+            top: 14px;
+            font-size: 18px;
+            right: 14px;
+
+            .show-pass {
+                margin-top: 3px;
+                i {
+                    font-size: 20px;
+                    color: $color-icon1;
+                }
+                .icon-eye-show {
+                    display: none;
+                }
+                &.active {
+                    .icon-eye-hide {
+                        display: none;
+                    }
+                    .icon-eye-show {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+        .password-field:valid ~ .box-auth-show {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    }
+
+    &.custom-select {
+        .inner-group-ip {
+            position: relative;
+            margin-right: -1px;
+            &::before {
+                position: absolute;
+                right: -5px;
+                top: 50%;
+                transform: translateY(-50%);
+                content: "";
+                display: block;
+                width: 1px;
+                height: 20px;
+                background-color: #e6e6e6;
+                z-index: 1;
+            }
+        }
+        img {
+            width: 20px;
+            min-width: 20px;
+            margin-right: 10px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        button {
+            border: 1px solid transparent;
+            background-color: $bg-input;
+            padding: 14px 14px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border-top-left-radius: 16px;
+            border-bottom-left-radius: 16px;
+            &:focus {
+                box-shadow: unset;
+            }
+        }
+        .bootstrap-select {
+            .dropdown-toggle {
+                &:focus {
+                    outline: none !important;
+                }
+            }
+        }
+
+        .dropdown-toggle:after {
+            content: "\e911";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            margin-top: 0;
+            font-family: "icomoon";
+            border: 0 !important;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: $text-black;
+        }
+        .bootstrap-select {
+            width: auto !important;
+            > .dropdown-menu {
+                margin-top: -12px !important;
+                min-width: 30%;
+                text-align: left;
+                list-style: none;
+                background-color: $white;
+                border-radius: 5px;
+                border: 0;
+                box-shadow: $shadow-1;
+                display: none;
+
+                .dropdown-item {
+                    padding: 10px;
+                    width: 100%;
+                    display: inline-block;
+                    &.active {
+                        background-color: $primary;
+                    }
+                }
+                &.show {
+                    display: block;
+                    z-index: 1;
+                }
+            }
+        }
+        &:focus-within .inner-group-ip,
+        &:focus-within .form-control {
+            border: 1px solid $primary;
+        }
+        .form-control {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            transition: unset;
+            padding-left: 14px;
+        }
+        &:focus-within .inner-group-ip {
+            border-right: 0;
+            border-top-left-radius: 16px;
+            border-bottom-left-radius: 16px;
+        }
+        &:focus-within .form-control {
+            border-left: 0;
+        }
+    }
+    &.group-ip-2 {
+        .required-field:valid {
+            padding-right: 42px;
+        }
+        .show {
+            display: none;
+            position: absolute;
+            top: 16px;
+            font-size: 18px;
+            right: 14px;
+        }
+        .required-field:valid ~ .show {
+            display: block;
+        }
+    }
+}
+.forgot-link {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: normal;
+    color: $primary;
+    display: block;
+}
+.group-ip-password {
+    &.pd1 {
+        .password-field:valid,
+        .password-field2:valid {
+            padding-right: 40px;
+        }
+        .box-auth-show {
+            display: flex;
+            .show-pass2 {
+                margin-top: 3px;
+                i {
+                    font-size: 20px;
+                    color: $color-icon1;
+                }
+                .icon-eye-show {
+                    display: none;
+                }
+                &.active {
+                    .icon-eye-show {
+                        display: block;
+                    }
+                    .icon-eye-hide {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+.group-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    span {
+        font-size: 14px;
+        font-weight: 400;
+        @include fh-normal;
+        color: $text-black-2;
+    }
+}

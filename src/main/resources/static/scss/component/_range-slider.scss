@@ -1,0 +1,63 @@
+.noUi-horizontal {
+    height: 2px;
+    padding-right: 15px;
+}
+.noUi-target {
+    border: 0;
+}
+.noUi-connects {
+    background: $line-2;
+}
+.noUi-connect {
+    background-color: $primary;
+}
+.noUi-horizontal .noUi-handle,
+.noUi-vertical .noUi-handle {
+    height: 20px;
+    width: 20px;
+    border-radius: 50px;
+    box-shadow: $shadow-range;
+    border: 2px solid $white;
+    background-color: $primary;
+    font-style: normal;
+    top: -9px;
+}
+.noUi-handle:after,
+.noUi-handle:before {
+    background-color: transparent;
+}
+.noUi-handle-lower,
+.noUi-handle-upper {
+    &::before {
+        font-family: "icomoon";
+        font-size: 14px;
+        left: 0px;
+        top: 1px;
+        color: $white;
+    }
+}
+.noUi-handle-lower {
+    &::before {
+        content: "\e910";
+    }
+}
+.noUi-handle-upper {
+    &::before {
+        content: "\e900";
+        left: 1px;
+    }
+}
+.noUi-horizontal {
+    .noUi-tooltip {
+        padding: 0;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: normal;
+        color: $primary;
+        border: 0;
+        &:before {
+            font-family: "SF Pro Display", sans-serif;
+            content: "$";
+        }
+    }
+}

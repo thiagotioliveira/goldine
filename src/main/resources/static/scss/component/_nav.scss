@@ -1,0 +1,83 @@
+.tab-content > .tab-pane {
+    display: none;
+    // transition: all 0.2s;
+    // transform: translateX(1rem);
+}
+
+.tab-content > .active {
+    display: block;
+    // transform: translateX(0rem);
+}
+
+.fade:not(.show) {
+    opacity: 0;
+}
+.fade {
+    transition: opacity 0.15s linear;
+}
+.nav-tabs {
+    border-bottom: 0;
+}
+#navtabs-drink1 {
+    background: $white;
+    @include grid(4, 1fr, 0px, 4px);
+    padding: 4px;
+    box-shadow: $shadow-1;
+    border: none;
+    .nav-item {
+        a {
+            background-color: $bg-input;
+
+            display: block;
+            padding: 6px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 4px;
+
+            @include fh-normal;
+            color: $primary;
+            &.active {
+                background-color: $primary;
+                color: $text-2;
+                font-weight: 700;
+            }
+        }
+    }
+    &.grid-3 {
+        @include grid(3, 1fr, 0px, 4px);
+    }
+}
+.tab-product-detail {
+    @include grid(3, 1fr, 0px, 8px);
+    .nav-item {
+        a {
+            display: block;
+            padding: 10px 14px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 400;
+            border-radius: 100px;
+            border: 1px solid $line-2;
+            @include fh-normal;
+            color: $primary;
+            &.active {
+                border: 1px solid $line-2;
+            }
+        }
+    }
+    &.st1 {
+        .nav-item {
+            a {
+                background-color: $rgba-2;
+                border: 1px solid $rgba-3;
+                @include fh-normal;
+                color: $white;
+                &.active {
+                    background-color: $white;
+                    color: $primary;
+                }
+            }
+        }
+    }
+}

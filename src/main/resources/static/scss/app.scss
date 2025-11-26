@@ -1,0 +1,30 @@
+/* ---------------------------------------------------------
+    * Name: CoffeeMonster
+    * Version: 1.0.1
+    * Author: Themesflat
+    * Author URI: http://themesflat.com 
+
+	* Abstracts variable
+    
+    * Reset css styles
+
+    * Components
+	
+    * widget
+
+    * Pages
+   
+
+ ------------------------------------------------------------------------------ */
+
+ /*--------- Abstracts variable ---------- */
+@import "./abstracts/index";
+
+/*---------- Reset css styles ----------- */
+@import "reset";
+
+/*------------ Components ---------------- */
+@import "./component/index";
+
+/*-------------- Pages ----------------- */
+@import "./pages/index";
